@@ -12,9 +12,14 @@ const GeneralInventoryTable = ({
   setSearch,
   searchFields,
   setSearchFields,
+  onEditProduct,
+  onDeleteProduct,
 }) => {
 
-  const columnsWithActions = useMemo(() => columns(), []);
+  const columnsWithActions = useMemo(() => columns(
+    onEditProduct,
+    onDeleteProduct
+  ), [onEditProduct, onDeleteProduct]);
 
   return (
     <div className="w-full space-y-4">
