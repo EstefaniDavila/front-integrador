@@ -10,6 +10,7 @@ import {
 
 import GeneralInventoryTable from '@/composables/inventory/tables/GeneralInventoryTable';
 import CreateProductModal from '@/composables/inventory/modals/CreateProductModal';
+import UpdateProductModal from '@/composables/inventory/modals/UpdateProductModal';
 
 
 
@@ -19,9 +20,9 @@ const InventoryPage = () => {
     rows: [
       { id: "1R-0750", desc: "Filtro aceite", stock: 47, loc: "Estante A", status: "OK", type: "repuesto" },
       { id: "153-5710", desc: "Batería 12V", stock: 8, loc: "Estante B", status: "Bajo", type: "repuesto" },
-      { id: "CAT-C15", desc: "Motor C15", stock: 2, loc: "Zona 1", status: "OK", type: "maquinaria" },
+      { id: "CAT-C15", desc: "Retroexcavadora JCB 3CX", stock: 2, loc: "Zona 1", status: "OK", type: "maquinaria" },
       { id: "9X-2012", desc: "Kit junta motor", stock: 0, loc: "Estante C", status: "AGOT", type: "repuesto" },
-      { id: "7E-7777", desc: "Turbo C18", stock: 15, loc: "Estante A", status: "OK", type: "maquinaria" },
+      { id: "7E-7777", desc: "Volquete Volvo FMX", stock: 15, loc: "Estante A", status: "OK", type: "maquinaria" },
     ],
     rowCount: 47
   };
@@ -49,8 +50,24 @@ const InventoryPage = () => {
     console.log("Producto creado:", newProduct);
   };
 
+   // Función para editar producto
+  const handleEditProduct = (updatedProduct) => {
+    setProducts(prevProducts => 
+      prevProducts.map(p => 
+        p.id === updatedProduct.id ? updatedProduct : p
+      )
+    );
+    console.log("Producto actualizado:", updatedProduct);
+  };
 
-  const filteredData = fakeInventory.rows.filter(item => {
+  // Función para eliminar producto
+  const handleDeleteProduct = (productToDelete) => {
+    setProducts(prevProducts => prevProducts.filter(p => p.id !== productToDelete.id));
+    console.log("Producto eliminado:", productToDelete);
+  };
+
+
+  const filteredData = products.filter(item => {
     const matchStatus =
       filterStatus === "todos" || item.status.toLowerCase() === filterStatus.toLowerCase();
 
@@ -127,7 +144,7 @@ const InventoryPage = () => {
 
           <div className="w-full bg-card rounded-xl border shadow-sm p-4">
             <GeneralInventoryTable
-              data={filteredData}
+             data={filteredData}
               fetchData={refetchData}
               pagination={pagination}
               setPagination={setPagination}
@@ -136,8 +153,8 @@ const InventoryPage = () => {
               setSearch={setSearch}
               searchFields={searchFields}
               setSearchFields={setSearchFields}
-              filterStatus={filterStatus}
-              setFilterStatus={setFilterStatus}
+              onEditProduct={handleEditProduct}
+              onDeleteProduct={handleDeleteProduct}
             />
           </div>
 
