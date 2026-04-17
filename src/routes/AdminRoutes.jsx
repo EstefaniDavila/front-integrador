@@ -16,11 +16,11 @@ const adminRoutes = [
         // errorElement: <GeneralError />,
         children: [
           { index: true, lazy: async () => ({ Component: (await import('../pages/panels/admin/dashboard/Dashboard')).default }) },
-          // {
-          //   path: 'productos',
-          //   lazy: async () => ({ Component: (await import('../pages/panels/admin/product/Product')).default }),
-          //   errorElement: <GeneralError />,
-          // },
+          {
+            path: 'procesarmantenimientos',
+            lazy: async () => ({ Component: (await import('../pages/panels/admin/gestionMantenimientos/GestionMantenimientos')).default }),
+            // errorElement: <GeneralError />,
+          },
           // {
           //   path: 'proveedores',
           //   lazy: async () => ({ Component: (await import('../pages/panels/admin/provider/Provider')).default }),

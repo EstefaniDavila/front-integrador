@@ -7,11 +7,7 @@ import { BsFillPersonLinesFill } from "react-icons/bs";
 import { FaTruck } from "react-icons/fa";
 import { BiCategoryAlt } from "react-icons/bi";
 import { FaShoppingCart } from "react-icons/fa";
-import { ImBooks } from "react-icons/im";
-import { FiType } from "react-icons/fi";
-import { TbLetterA } from "react-icons/tb";
-import { LiaFileContractSolid } from "react-icons/lia";
-import { FaClipboardQuestion } from "react-icons/fa6";
+import { PiNutBold } from "react-icons/pi";
 
 
 export const adminLinks = [
@@ -23,10 +19,10 @@ export const adminLinks = [
   //   icon: <TbLayoutDashboard size={18} />,
   // },
   {
-    title: 'Productos',
+    title: 'Gestión de Mantenimientos',
     label: '',
-    href: '/Productos',
-    icon: <FaShoppingCart size={18} />,
+    href: '/procesarmantenimientos',
+    icon: <PiNutBold size={18} />,
   },
 
   {

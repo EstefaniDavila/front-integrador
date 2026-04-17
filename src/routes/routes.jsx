@@ -4,6 +4,7 @@ import GeneralError from './../pages/general/errors/general-error'
 import NotFoundError from './../pages/general/errors/not-found-error'
 import MaintenanceError from './../pages/general/errors/maintenance-error'
 import adminRoutes from '../routes/AdminRoutes'
+import customerRoutes from '../routes/CustomerRoutes'
 import Login from '../pages/general/login/Login'
 import ForgotPassword from '@/pages/general/login/ForgotPassword'
 import ResetPassword from '@/pages/general/login/ResetPassword'
@@ -13,7 +14,8 @@ const Routes = () => {
   const {  user, authTokens } = useAuth('')
 
   const roleRouter = {
-    Admin: adminRoutes
+    Admin: adminRoutes,
+    Customer: customerRoutes
   }
 
   const routesForPublic = [

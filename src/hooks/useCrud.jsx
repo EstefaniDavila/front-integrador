@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 import { useConfirm } from "@/components/custom/alert"
-import { LuAlertOctagon } from "react-icons/lu";
+//import { LuAlertOctagon } from "react-icons/lu";
 
 const backend_host = import.meta.env.VITE_BACKEND_HOST
 
@@ -24,7 +24,7 @@ const useCrud = (endpoint) => {
       body: "¿Estás seguro de que quieres eliminar este registro? No podrás recuperarlo una vez eliminado.",
       cancelButton: "Cancelar",
       actionButton: "Eliminar!",
-      icon: <LuAlertOctagon className="text-red-500 h-16 w-16 mx-auto mb-4" />,
+      //icon: <LuAlertOctagon className="text-red-500 h-16 w-16 mx-auto mb-4" />,
     })
     if (confirmation) {
       
@@ -46,7 +46,7 @@ const useCrud = (endpoint) => {
       body: "¿Estás seguro de que quieres ingresar este registro?",
       cancelButton: "Cancelar",
       actionButton: "Registrar",
-      icon: <LuAlertOctagon className="text-red-500 h-16 w-16 mx-auto mb-4" />,
+      //icon: <LuAlertOctagon className="text-red-500 h-16 w-16 mx-auto mb-4" />,
     })
     if (!confirmation) {
       throw new Error('Acción cancelada por el usuario');
@@ -75,7 +75,7 @@ const useCrud = (endpoint) => {
       body: "¿Estás seguro de que quieres actualizar este registro?",
       cancelButton: "Cancelar",
       actionButton: "Actualizar",
-      icon: <LuAlertOctagon className="text-red-500 h-16 w-16 mx-auto mb-4" />,
+     // icon: <LuAlertOctagon className="text-red-500 h-16 w-16 mx-auto mb-4" />,
     })
     if (!confirmation) {
       throw new Error('Acción cancelada por el usuario');
