@@ -9,8 +9,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import GeneralInventoryTable from '@/composables/inventory/tables/GeneralInventoryTable';
+import CreateProductModal from '@/composables/inventory/modals/CreateProductModal';
+
+
 
 const InventoryPage = () => {
+
   const fakeInventory = {
     rows: [
       { id: "1R-0750", desc: "Filtro aceite", stock: 47, loc: "Estante A", status: "OK", type: "repuesto" },
@@ -22,6 +26,7 @@ const InventoryPage = () => {
     rowCount: 47
   };
 
+  const [products, setProducts] = useState(fakeInventory.rows);
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10
@@ -36,6 +41,14 @@ const InventoryPage = () => {
   const refetchData = () => {
     console.log("Refetching data...");
   };
+
+
+  // Función para agregar nuevo producto
+  const handleCreateProduct = (newProduct) => {
+    setProducts(prevProducts => [newProduct, ...prevProducts]);
+    console.log("Producto creado:", newProduct);
+  };
+
 
   const filteredData = fakeInventory.rows.filter(item => {
     const matchStatus =
@@ -106,9 +119,8 @@ const InventoryPage = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <Button variant="default" className="gap-2 shadow-sm">
-                <Plus className="h-4 w-4" />
-              </Button>
+              <CreateProductModal onCreate={handleCreateProduct} />
+
 
             </div>
           </div>
