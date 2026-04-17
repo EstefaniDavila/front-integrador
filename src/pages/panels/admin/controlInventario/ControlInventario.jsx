@@ -10,7 +10,9 @@ import {
 
 import GeneralInventoryTable from '@/composables/inventory/tables/GeneralInventoryTable';
 import CreateProductModal from '@/composables/inventory/modals/CreateProductModal';
+import DeleteProductModal from '@/composables/inventory/modals/DeleteProductModal';
 import UpdateProductModal from '@/composables/inventory/modals/UpdateProductModal';
+import HistoryProductModal from '@/composables/inventory/modals/HistoryProductModal';
 
 
 
@@ -39,6 +41,8 @@ const InventoryPage = () => {
   const [filterStatus, setFilterStatus] = useState("todos");
   const [filterType, setFilterType] = useState("todos");
 
+  const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const refetchData = () => {
     console.log("Refetching data...");
   };
@@ -50,10 +54,10 @@ const InventoryPage = () => {
     console.log("Producto creado:", newProduct);
   };
 
-   // Función para editar producto
+  // Función para editar producto
   const handleEditProduct = (updatedProduct) => {
-    setProducts(prevProducts => 
-      prevProducts.map(p => 
+    setProducts(prevProducts =>
+      prevProducts.map(p =>
         p.id === updatedProduct.id ? updatedProduct : p
       )
     );
@@ -66,6 +70,15 @@ const InventoryPage = () => {
     console.log("Producto eliminado:", productToDelete);
   };
 
+  const handleOpenHistory = (product) => {
+    setSelectedProduct(product);
+    setIsHistoryModalOpen(true);
+  };
+
+  const handleCloseHistoryModal = () => {
+    setIsHistoryModalOpen(false);
+    setSelectedProduct(null);
+  };
 
   const filteredData = products.filter(item => {
     const matchStatus =
@@ -144,7 +157,7 @@ const InventoryPage = () => {
 
           <div className="w-full bg-card rounded-xl border shadow-sm p-4">
             <GeneralInventoryTable
-             data={filteredData}
+              data={filteredData}
               fetchData={refetchData}
               pagination={pagination}
               setPagination={setPagination}
@@ -155,11 +168,21 @@ const InventoryPage = () => {
               setSearchFields={setSearchFields}
               onEditProduct={handleEditProduct}
               onDeleteProduct={handleDeleteProduct}
+              onOpenHistory={handleOpenHistory}
             />
           </div>
 
         </div>
       </div>
+
+      <HistoryProductModal
+        isOpen={isHistoryModalOpen}
+        handleClose={() => {
+          setIsHistoryModalOpen(false);
+          setSelectedProduct(null);
+        }}
+        product={selectedProduct}
+      />
     </div>
   );
 };

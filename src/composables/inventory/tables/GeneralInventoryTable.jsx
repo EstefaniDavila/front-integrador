@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import DataTable from '@/components/custom/data_table';
-import columns from '@/services/inventory/columns'
+import columns from '@/services/inventory/columns';
 
 const GeneralInventoryTable = ({
   data,
@@ -14,12 +14,15 @@ const GeneralInventoryTable = ({
   setSearchFields,
   onEditProduct,
   onDeleteProduct,
+  onOpenHistory, 
 }) => {
 
   const columnsWithActions = useMemo(() => columns(
-    onEditProduct,
-    onDeleteProduct
-  ), [onEditProduct, onDeleteProduct]);
+    onEditProduct,    
+    null,            
+    onOpenHistory,   
+    onDeleteProduct   
+  ), [onEditProduct, onOpenHistory, onDeleteProduct]);
 
   return (
     <div className="w-full space-y-4">
