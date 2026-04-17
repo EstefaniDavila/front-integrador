@@ -25,6 +25,13 @@ export const adminLinks = [
     icon: <PiNutBold size={18} />,
   },
 
+   {
+    title: 'Inventario de Repuestos y Maquinaria',
+    label: '',
+    href: '/inventariomaquinariayrepuestos',
+    icon: <FaTruck size={18} />,
+  },
+
   {
     title: 'Proveedores',
     label: '',

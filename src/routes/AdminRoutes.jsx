@@ -21,11 +21,11 @@ const adminRoutes = [
             lazy: async () => ({ Component: (await import('../pages/panels/admin/gestionMantenimientos/GestionMantenimientos')).default }),
             // errorElement: <GeneralError />,
           },
-          // {
-          //   path: 'proveedores',
-          //   lazy: async () => ({ Component: (await import('../pages/panels/admin/provider/Provider')).default }),
-          //   errorElement: <GeneralError />,
-          // },
+          {
+            path: 'inventariomaquinariayrepuestos',
+            lazy: async () => ({ Component: (await import('../pages/panels/admin/controlInventario/Controlinventario')).default }),
+            //errorElement: <GeneralError />,
+          },
           // {
           //   path: 'categorias',
           //   lazy: async () => ({ Component: (await import('../pages/panels/admin/category/Category')).default }),
