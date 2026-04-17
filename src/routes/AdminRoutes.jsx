@@ -26,11 +26,11 @@ const adminRoutes = [
             lazy: async () => ({ Component: (await import('../pages/panels/admin/controlInventario/Controlinventario')).default }),
             //errorElement: <GeneralError />,
           },
-          // {
-          //   path: 'categorias',
-          //   lazy: async () => ({ Component: (await import('../pages/panels/admin/category/Category')).default }),
-          //   errorElement: <GeneralError />,
-          // },
+          {
+            path: 'proveedores',
+            lazy: async () => ({ Component: (await import('../pages/panels/admin/gestionProveedores/GestionProveedores')).default }),
+            errorElement: <GeneralError />,
+          },
           {
             path: 'ajustes',
             lazy: async () => ({ Component: (await import('../pages/general/settings')).default }),
