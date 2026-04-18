@@ -45,7 +45,7 @@ const columns = (handleDelete, handleUpdate) => [
     cell: ({ row }) => (
       <div className='flex space-x-4'>
         <GeneralTooltip
-          content='Editar Categoria'
+          content='Editar Solicitud de Mantenimiento'
           triggerContent={
             <span className='bg-yellow-500 text-white rounded-full p-1'>
               <TbEdit size={20}/>
@@ -54,7 +54,7 @@ const columns = (handleDelete, handleUpdate) => [
           onClick={()=> handleUpdate(row?.original, 'edit')}
         />
         <GeneralTooltip
-          content='Eliminar Categoria'
+          content='Eliminar Solicitud de Mantenimiento'
           triggerContent={
             <span className='bg-red-500 text-white rounded-full p-1'>
               <TbTrash size={20}/>

@@ -34,8 +34,8 @@ const ModalNewMaintenance = ({ isOpen, handleClose }) =>{
         <Modal
           open={isOpen}
           setOpen={handleClose}
-          title="Crear Categoria"
-          description="Completa el formulario para crear una nueva categoria de productos."
+          title="Solicitar Mantenimiento"
+          description="Completa el formulario para solicitar un mantenimiento."
           size="lg"
           callBack={handleSubmit}
         >

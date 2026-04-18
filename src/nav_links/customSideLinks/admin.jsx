@@ -26,12 +26,6 @@ export const adminLinks = [
     icon: <FaTruck size={18} />,
   },
   {
-    title: 'Categorías',
-    label: '',
-    href: '/categorias',
-    icon: <BiCategoryAlt size={18} />,
-  },
-  {
     title: 'Sales Management',
     label: '',
     href: '/salesmanagement',

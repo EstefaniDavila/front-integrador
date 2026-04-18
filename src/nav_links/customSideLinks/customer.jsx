@@ -25,21 +25,6 @@ export const customerLinks = [
     href: '/mantenimientos',
     icon: <PiNutBold  size={18} />,
   },
-
-  {
-    title: 'Proveedores',
-    label: '',
-    href: '/proveedores',
-    icon: <FaTruck size={18} />,
-  },
-
-  {
-    title: 'Categorias',
-    label: '',
-    href: '/categorias',
-    icon: <BiCategoryAlt size={18} />,
-  },
-  
   {
     title: 'Ajustes',
     label: '',
