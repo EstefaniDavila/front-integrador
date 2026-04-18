@@ -148,10 +148,7 @@ const InventoryPage = () => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-
               <CreateProductModal onCreate={handleCreateProduct} />
-
-
             </div>
           </div>
 
